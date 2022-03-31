@@ -29,6 +29,10 @@ export default class CATransport extends EventEmitter {
   onMessage(event: MessageEvent) {
     this.emit(event.data.event, event.data.data)
   }
+
+  resize() {
+    this.sendEvent('resize', document.getElementsByTagName('body')[0].offsetHeight + 36)
+  }
 }
 
 if (typeof window !== 'undefined') {
